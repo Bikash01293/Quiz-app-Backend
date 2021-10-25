@@ -18,22 +18,10 @@ app.use(express.json());
 
 app.use(cors())
 
-// {
-//     "origin": "http://localhost:4200",
-//     'allowedHeaders': ['Authorization', 'Content-Type'],
-// }
-// {
-    // 'allowedHeaders': ['Authorization', 'Content-Type'],
-// }
-// app.options('*', cors())
 
-//database connection
 const db = require('./database/db');
 db()
-// app.use(function (req, res, next) {
-// res.header("Access-Control-Allow-Headers", "*")
-// res.header("Access-Control-Allow-Headers","Access-Control-Allow-Headers")
-// })
+
 
 // socket 
 const server = require('http').Server(app);
