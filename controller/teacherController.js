@@ -87,7 +87,7 @@ exports.addQuestion = (req, res) => {
         }
         else {
             var question = new Question({
-                quizid: req.body.quizId,
+                quizid: req.body.quizid,
                 questionId: q.length + 1,
                 questionText: req.body.questionText,
                 answer: req.body.answer,
