@@ -171,6 +171,7 @@ function getEmail(email) {
 }
 
 exports.Reset = (req, res) => {
+    console.log(req.body.email)
     User.find({ email: req.body.email }, async (err, users) => {
 
         if (err) {
