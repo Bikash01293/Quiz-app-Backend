@@ -94,7 +94,7 @@ exports.addQuestion = (req, res) => {
                 options: req.body.options
             });
 
-            console.log(question.answer)
+            console.log(question.questionId)
 
             question.save((error, qsn) => {
                 if (error) {
