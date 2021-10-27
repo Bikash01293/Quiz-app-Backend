@@ -1,5 +1,5 @@
-var mongoose = require('mongoose')
-var optionSchema = mongoose.Schema(
+const mongoose = require('mongoose')
+const optionSchema = mongoose.Schema(
         { 
             answerText: String ,
             isCorrect: Boolean 

@@ -1,6 +1,6 @@
 
-var mongoose = require('mongoose')
-var User = require('../models/user')
+const mongoose = require('mongoose')
+const User = require('../models/user')
 const jwt = require('jsonwebtoken')
 exports.seeStudent = (req, res) => {
     User.find({ role: "student" }, (err, users) => {
@@ -27,7 +27,7 @@ exports.seeTeacher = (req, res) => {
 
 
 exports.block = (req, res) => {
-    var id = req.params.id
+    const id = req.params.id
     User.updateOne({ _id: id }, { blocked: true }, function (err, user) {
         if (err) {
             console.log(err)
@@ -43,7 +43,7 @@ exports.block = (req, res) => {
 
 
 exports.unblock = (req, res) => {
-    var id = req.params.id
+    const id = req.params.id
     User.updateOne({ _id: id }, { blocked: false }, function (err, user) {
         if (err) {
             console.log(err)

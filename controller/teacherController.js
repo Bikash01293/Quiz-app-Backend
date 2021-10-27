@@ -1,13 +1,13 @@
-var Quiz = require('../models/quiz')
-var User = require('../models/user')
-var Question = require('../models/question')
+const Quiz = require('../models/quiz')
+const User = require('../models/user')
+const Question = require('../models/question')
 const jwt = require('jsonwebtoken')
 
 exports.createQuiz = (req, res) => {
     whoid = req.userId;
     whoemail = req.email
     Quizname = req.body.quizname
-    var quiz = new Quiz({
+    const quiz = new Quiz({
         quizname: req.body.quizname,
         quizdescription: req.body.description,
         owner: whoid,
@@ -52,7 +52,7 @@ exports.seeStudent = (req, res) => {
 }
 
 exports.blockStudent = (req, res) => {
-    var id = req.params.id
+    const id = req.params.id
     User.updateOne({ _id: id }, { blocked: true }, function (err, user) {
         if (err) {
             console.log(err)
@@ -66,7 +66,7 @@ exports.blockStudent = (req, res) => {
 
 }
 exports.unblockStudent = (req, res) => {
-    var id = req.params.id
+    const id = req.params.id
     User.updateOne({ _id: id }, { blocked: false }, function (err, user) {
         if (err) {
             console.log(err)
@@ -86,7 +86,7 @@ exports.addQuestion = (req, res) => {
             res.json({ msg: "some error!" });
         }
         else {
-            var question = new Question({
+            const question = new Question({
                 quizid: req.body.quizid,
                 questionId: q.length + 1,
                 questionText: req.body.questionText,
@@ -143,7 +143,7 @@ exports.uploadQuiz = (req, res) => {
 }
 
 exports.deleteQuiz = (req, res) => {
-    var id = req.params.id
+    const id = req.params.id
     console.log(req.params.id);
     Quiz.deleteOne({ _id: id }, (err) => {
         if (err) {
@@ -195,7 +195,7 @@ exports.getAllQuestion = (req, res) => {
 
 
 exports.deleteQuestion = (req, res) => {
-    var id = req.params.id
+    const id = req.params.id
     Question.deleteOne({ _id: id }, (err) => {
         if (err) {
             res.json({ msg: "Somthing went wrong!!" });

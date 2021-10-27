@@ -1,5 +1,5 @@
-var mongoose = require('mongoose')
-var otpSchema = mongoose.Schema({
+const mongoose = require('mongoose')
+const otpSchema = mongoose.Schema({
     otp: {
         type: Number,
         required: true

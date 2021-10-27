@@ -1,6 +1,6 @@
-var mongoose = require('mongoose')
+const mongoose = require('mongoose')
 // const optionSchema = require('./options');
-var questionSchema = mongoose.Schema({
+const questionSchema = mongoose.Schema({
     quizid: {
         type: String,
         required: true

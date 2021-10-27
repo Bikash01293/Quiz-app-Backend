@@ -1,6 +1,6 @@
-var Quiz = require('../models/quiz')
-var User = require('../models/user')
-var Question = require('../models/question')
+const Quiz = require('../models/quiz')
+const User = require('../models/user')
+const Question = require('../models/question')
 const jwt = require('jsonwebtoken')
 
 exports.getallquiz = (req, res) => {
@@ -30,7 +30,7 @@ exports.getAllQuestion = (req, res) => {
 
 
 exports.blockMe = (req, res) => {
-    var id = req.userId
+    const id = req.userId
     User.updateOne({ _id: id }, { blocked: true }, function (err, user) {
         if (err) {
             console.log(err)
