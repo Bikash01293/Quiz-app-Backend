@@ -1,19 +1,19 @@
 require('dotenv').config()
-const nodemailer = require('nodemailer');
+var nodemailer = require('nodemailer');
 function sendEmail(to,otp) {
-    const transporter = nodemailer.createTransport({
+    var transporter = nodemailer.createTransport({
         service: 'gmail',
         auth: {
             user: 'adhikaribikash821@gmail.com',
             pass: process.env.EMAILPASSWORD
         }
     });
-    // const cc = ["john@gmail.com","marry@gmail.com"]
-    const str = "your otp = ";
-    const a =otp;
+    // var cc = ["john@gmail.com","marry@gmail.com"]
+    var str = "your otp = ";
+    var a =otp;
     str+=a;
     str += "\nOTP valid till 2min !"
-    const mailOptions = {
+    var mailOptions = {
         from: 'adhikaribikash821@gmail.com',
         to: to,
         // cc:cc,

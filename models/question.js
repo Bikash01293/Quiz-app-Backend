@@ -1,6 +1,5 @@
-const mongoose = require('mongoose')
-// const optionSchema = require('./options');
-const questionSchema = mongoose.Schema({
+var mongoose = require('mongoose')
+var questionSchema = mongoose.Schema({
     quizid: {
         type: String,
         required: true
@@ -21,11 +20,7 @@ const questionSchema = mongoose.Schema({
         type  :Array,
         default:[]
     }
-    // answerOptions:{ 
-    //     type: [ mongoose.Schema.Types.ObjectId ],
-    //     ref: 'option',
-    //     default: []
-    // } 
+    
 })
 module.exports = mongoose.model('question',questionSchema)
 

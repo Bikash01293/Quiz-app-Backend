@@ -1,6 +1,6 @@
-const express = require('express')
+var express = require('express')
 const { verify } = require('jsonwebtoken')
-const router = express.Router()
+var router = express.Router()
 const adminController  = require('../controller/adminController')
 const verifierTokenMiddleware = require('../middleware/verifierTokenMiddleware')
 

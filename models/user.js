@@ -1,7 +1,7 @@
 
-const mongoose = require('mongoose')
-const bcrypt = require('bcrypt');
-const userSchema = mongoose.Schema({
+var mongoose = require('mongoose')
+var bcrypt = require('bcrypt');
+var userSchema = mongoose.Schema({
     
     contact: {
         type: Number,

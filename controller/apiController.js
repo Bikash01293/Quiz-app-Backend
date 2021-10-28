@@ -1,18 +1,18 @@
-const User = require('../models/user')
-const Otp = require('../models/otp')
+var User = require('../models/user')
+var Otp = require('../models/otp')
 const jwt = require('jsonwebtoken')
-const sendMail = require('../mail/mail')
+var sendMail = require('../mail/mail')
 
-// const sendMail = require('../mail/mail')
-const bcrypt = require('bcrypt')
+// var sendMail = require('../mail/mail')
+var bcrypt = require('bcrypt')
 
 exports.getCheck = (req, res, next) => {
     res.json({ msg: "All ok" })
 }
 
 exports.registerAdmin = async (req, res) => {
-    // const x = await check(req,res,req.body.email);
-    const user = new User({
+    // var x = await check(req,res,req.body.email);
+    var user = new User({
         contact: req.body.phone,
         email: req.body.email,
         role: "admin",
@@ -47,8 +47,8 @@ exports.registerAdmin = async (req, res) => {
 
 
 exports.registerStudent = async (req, res) => {
-    // const x = await check(req,res,req.body.email);
-    const user = new User({
+    // var x = await check(req,res,req.body.email);
+    var user = new User({
         contact: req.body.phone,
         email: req.body.email,
         role: "student",
@@ -82,8 +82,8 @@ exports.registerStudent = async (req, res) => {
 
 
 exports.registerTeacher = async (req, res) => {
-    // const x = await check(req,res,req.body.email);
-    const user = new User({
+    // var x = await check(req,res,req.body.email);
+    var user = new User({
         contact: req.body.phone,
         email: req.body.email,
         role: "teacher",
@@ -171,7 +171,6 @@ function getEmail(email) {
 }
 
 exports.Reset = (req, res) => {
-    console.log(req.body.email)
     User.find({ email: req.body.email }, async (err, users) => {
 
         if (err) {
@@ -183,14 +182,14 @@ exports.Reset = (req, res) => {
             res.json({ msg: "user does not exist with this email" });
         }
         else {
-            const email = req.body.email
-            const x = await getEmail(req.body.email)
+            var email = req.body.email
+            var x = await getEmail(req.body.email)
             setTimeout(async () => {
                 console.log("timeout (2min)");
-                const y = await getEmail(email)
+                var y = await getEmail(email)
             }, 2 * 60000);
-            const a = Math.floor(1000 + Math.random() * 9000);
-            const otp = new Otp({
+            var a = Math.floor(1000 + Math.random() * 9000);
+            var otp = new Otp({
                 otp: a,
                 email: req.body.email
             });
@@ -228,13 +227,13 @@ exports.resestPasswordDone = (req, res) => {
                         res.json({ msg: "Somthing went wrong" });
                     }
                     else {
-                        const otp = otps.otp;
+                        var otp = otps.otp;
                         if (otp != req.body.otp) {
                             res.json({ msg: "Invalid Otp!!!" });
                         }
                         else {
-                            const p = User.hashPassword(req.body.p1)
-                            const x = await getEmail(req.body.email)
+                            var p = User.hashPassword(req.body.p1)
+                            var x = await getEmail(req.body.email)
                             User.updateOne({ email: req.body.email },
                                 { password: p }, function (err, user) {
                                     console.log(1);
