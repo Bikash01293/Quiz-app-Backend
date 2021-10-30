@@ -20,7 +20,7 @@ exports.createQuiz = (req, res) => {
         }
         else {
 
-            res.status(200).json({ message: Quizname +" "+"quiz was added successfully!" })
+            res.status(201).json({ message: Quizname +" "+"quiz was added successfully!" })
         }
     })
 }
@@ -102,7 +102,7 @@ exports.addQuestion = (req, res) => {
                     res.json({ msg: "some error!" });
                 }
                 else {
-                    res.status(200).json({ message: "yes question added!!" })
+                    res.status(201).json({ message: "yes question added!!" })
                 }
             })
         }
