@@ -37,7 +37,7 @@ exports.registerAdmin = async (req, res) => {
                 else {
                     let payload = { subject: registeredUser._id }
                     let token = jwt.sign(payload, process.env.JWT_SECRET)
-                    res.status(200).json({ token: token })
+                    res.status(201).json({ token: token })
                 }
             })
         }
@@ -73,7 +73,7 @@ exports.registerStudent = async (req, res) => {
                 else {
                     let payload = { subject: registeredUser._id }
                     let token = jwt.sign(payload, process.env.JWT_SECRET)
-                    res.status(200).json({ token: token })
+                    res.status(201).json({ token: token })
                 }
             })
         }
@@ -108,7 +108,7 @@ exports.registerTeacher = async (req, res) => {
                 else {
                     let payload = { subject: registeredUser._id }
                     let token = jwt.sign(payload, process.env.JWT_SECRET)
-                    res.status(200).json({ token: token })
+                    res.status(201).json({ token: token })
                 }
             })
         }
